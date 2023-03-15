@@ -1,0 +1,106 @@
+---
+title: "boxplots of genes of interest -- nanostring gene quant"
+output: html_notebook
+---
+
+
+
+```{r}
+library(ggpubr)
+library(readxl)
+```
+
+```{r}
+norm_cts_nanostring <- read_excel("/Volumes/Fajgenbaum/Basic and Translational Research/Mike_SHARE/bulk_RNAseq/Nanostring_Recreate/norm_cts_nanostring.xlsx", sheet = "transpose")
+norm_cts_nanostring_noTaf1 <- read_excel("/Volumes/Fajgenbaum/Basic and Translational Research/Mike_SHARE/bulk_RNAseq/Nanostring_Recreate/norm_cts_nanostring.xlsx", sheet = "transpose_wnoTaf1")
+norm_cts_nanostring_noTaf2_11 <- read_excel("/Volumes/Fajgenbaum/Basic and Translational Research/Mike_SHARE/bulk_RNAseq/Nanostring_Recreate/norm_cts_nanostring.xlsx", sheet = "transpose_wnoTaf2_11")
+```
+
+
+
+
+```{r}
+ggboxplot(norm_cts_nanostring, x = "pheno", y = "PLA2G2A",
+                color = "black", fill = "pheno", shape = "pheno", add = "dotplot", outlier.shape = 0)
+```
+
+```{r}
+ggboxplot(norm_cts_nanostring, x = "pheno", y = "SPP1",
+                color = "black", fill = "pheno", shape = "pheno", add = "dotplot", outlier.shape = 0)
+```
+
+```{r}
+ggboxplot(norm_cts_nanostring_noTaf1, x = "pheno", y = "SPP1",
+                color = "black", fill = "pheno", shape = "pheno", add = "dotplot", outlier.shape = 0)
+```
+
+```{r}
+ggboxplot(norm_cts_nanostring_noTaf2_11, x = "pheno", y = "XBP1",
+                color = "black", fill = "pheno", shape = "pheno", add = "dotplot", outlier.shape = 0)
+```
+
+
+
+```{r}
+ggboxplot(norm_cts_nanostring, x = "pheno", y = "MME",
+                color = "black", fill = "pheno", shape = "pheno")
+```
+
+```{r}
+ggboxplot(norm_cts_nanostring, x = "pheno", y = "FN1",
+                color = "black", fill = "pheno", shape = "pheno")
+```
+
+```{r}
+ggboxplot(norm_cts_nanostring, x = "pheno", y = "CCR10",
+                color = "black", fill = "pheno", shape = "pheno")
+```
+```{r}
+ggboxplot(norm_cts_nanostring, x = "pheno", y = "IL1RN",
+                color = "black", fill = "pheno", shape = "pheno")
+```
+```{r}
+ggboxplot(norm_cts_nanostring, x = "pheno", y = "C6",
+                color = "black", fill = "pheno", shape = "pheno")
+```
+
+```{r}
+ggboxplot(norm_cts_nanostring, x = "pheno", y = "IL1RL1",
+                color = "black", fill = "pheno", shape = "pheno")
+```
+
+```{r}
+ggboxplot(norm_cts_nanostring, x = "pheno", y = "S100A9",
+                color = "black", fill = "pheno", shape = "pheno")
+```
+
+```{r}
+ggboxplot(norm_cts_nanostring_noTaf1, x = "pheno", y = "PLA2G2A",
+                color = "black", fill = "pheno", shape = "pheno")
+```
+
+```{r}
+stat.test <- norm_cts_nanostring_noTaf1 %>% t_test(PLA2G2A ~ pheno)
+stat.test
+```
+
+```{r}
+ggboxplot(norm_cts_nanostring_noTaf1, x = "pheno", y = "XBP1",
+                color = "black", fill = "pheno", shape = "pheno")
+```
+
+```{r}
+ggboxplot(norm_cts_nanostring_noTaf1, x = "pheno", y = "SPP1",
+                color = "black", fill = "pheno", shape = "pheno")
+```
+
+```{r}
+ggboxplot(norm_cts_nanostring_noTaf1, x = "pheno", y = "PIGR",
+                color = "black", fill = "pheno", shape = "pheno")
+```
+
+```{r}
+ggboxplot(norm_cts_nanostring, x = "pheno", y = "XBP1",
+                color = "black", fill = "pheno", shape = "pheno")
+```
+
